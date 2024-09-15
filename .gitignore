@@ -1,26 +1,11 @@
-# Prerequisites
-*.d
-
-# Object files
 *.o
-*.ko
-*.obj
-*.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
 
 cursor-shape-v1-protocol.h
 pointer-constraints-unstable-v1-protocol.h
 wlr-layer-shell-unstable-v1-protocol.h
 wlr-output-power-management-unstable-v1-protocol.h
+dwl-ipc-unstable-v2-protocol.c
+dwl-ipc-unstable-v2-protocol.h
 xdg-shell-protocol.h
 .vscode
 dwl
