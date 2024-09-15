@@ -37,8 +37,8 @@ static const Rule rules[] = {
 /* layout(s) */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[T]",      tile },
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -125,8 +125,17 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[] = { "foot", NULL };
-static const char *menucmd[] = { "wmenu-run", NULL };
+static const char *termcmd[] = { "kitty", NULL };
+//static const char *menucmd[] = { "wmenu-run", NULL };
+static const char *menucmd[] = { "rofi", "-show", "drun", NULL };
+
+#define ADDPASSRULE(S, M, K) {.appid = S, .len = LENGTH(S), .key = K}
+static const PassKeypressRule pass_rules[] = {
+	ADDPASSRULE("com.obsproject.Studio", MODKEY, XKB_KEY_Home),
+	ADDPASSRULE("com.obsproject.Studio", MODKEY, XKB_KEY_End),
+	ADDPASSRULE("com.obsproject.Studio", MODKEY, XKB_KEY_F12),
+	ADDPASSRULE("discord", 0, XKB_KEY_n),
+};
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
