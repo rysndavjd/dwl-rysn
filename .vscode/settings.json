@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "input-event-codes.h": "c",
+        "drm_fourcc.h": "c"
+    }
+}
