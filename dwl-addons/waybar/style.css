@@ -6,25 +6,31 @@
     min-height: 0;
 }
 
+#tags button {
+    background: #222222;
+    color: #bbbbbb;
+}
+#tags button.occupied {
+    color: #eeeeee;
+}
+#tags button.focused {
+    background: #005577;
+}
+#tags button.urgent{
+    background: #ff0000;
+}
+
 window#waybar {
-    background: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: white;
+    background-color: #005577;
 }
 
 #workspaces button {
     padding: 0 5px;
     background: transparent;
     color: white;
-    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid white;
-}
-
-#mode {
     background: #64727D;
     border-bottom: 3px solid white;
 }

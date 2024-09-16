@@ -18,13 +18,13 @@
     // Modules configuration
 
     "dwl/tags": {
-    "num-tags": 6,
-    "tag-labels": ["", "󰈹", "", 4, 5, 6]
+        "num-tags": 6,
+        "tag-labels": ["", "󰈹", "", 4, 5, 6]
     },
     "dwl/window": {
-    "format": "{title}",
-    "max-length": 50,
-    "tooltip": false
+        "format": "{layout} {title}",
+        "max-length": 50,
+        "tooltip": false
     },
     "tray": {
         // "icon-size": 21,
