@@ -8,3 +8,4 @@ dwl-ipc-unstable-v2-protocol.h
 xdg-shell-protocol.h
 .vscode
 dwl
+config.h
