@@ -1,12 +1,13 @@
 {
-    "position": "bottom",
-    "height": 30,
-    "spacing": 4, 
+    "position": "top",
+    "height": 50,
+    "spacing": 10, 
     "modules-left": [
-        "dwl/tags"
+        "dwl/tags",
+        "dwl/window#layout"
     ],
     "modules-center": [
-        "dwl/window"
+        "dwl/window#title"
     ],
     "modules-right": [
         "tray",
@@ -18,16 +19,21 @@
         "num-tags": 6,
         "tag-labels": ["", "󰈹", "", 4, 5, 6]
     },
-    "dwl/window": {
-        "format": "{layout} {title}",
+    "dwl/window#layout": {
+        "format": "{layout}",
         "max-length": 50,
         "tooltip": false
-    },
+    }, 
+    "dwl/window#title": {
+        "format": "{title}",
+        "max-length": 50,
+        "tooltip": false
+    }, 
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 35,
         "spacing": 10
     },
     "clock": {
         "format": "{:%b %d, %a %I:%M}"
-    },
+    }
 }
