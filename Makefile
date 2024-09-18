@@ -54,6 +54,9 @@ dwl-ipc-unstable-v2-protocol.c:
 	$(WAYLAND_SCANNER) private-code \
 		protocols/dwl-ipc-unstable-v2.xml $@
 
+config.h:
+	ln -sr config-$(CONFIG).h config.h
+
 clean:
 	rm -f dwl *.o *-protocol.h
 
@@ -75,6 +78,14 @@ install: dwl
 	mkdir -p $(DESTDIR)$(DATADIR)/wayland-sessions
 	cp -f dwl.desktop $(DESTDIR)$(DATADIR)/wayland-sessions/dwl.desktop
 	chmod 644 $(DESTDIR)$(DATADIR)/wayland-sessions/dwl.desktop
+	mkdir -p $(DESTDIR)$(PREFIX)/share/dwl
+	cp -f dwl-addons/rofi/rofi.rasi $(DESTDIR)/etc/xdg/rofi.rasi
+	chmod 644 $(DESTDIR)/etc/xdg/rofi.rasi
+	mkdir -p $(DESTDIR)/etc/xdg/waybar
+	cp -f dwl-addons/waybar/$(CONFIG)/config $(DESTDIR)/etc/xdg/waybar/config
+	chmod 644 $(DESTDIR)/etc/xdg/waybar/config
+	cp -f dwl-addons/waybar/$(CONFIG)/style.css $(DESTDIR)/etc/xdg/waybar/style.css
+	chmod 644 $(DESTDIR)/etc/xdg/waybar/style.css
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/dwl $(DESTDIR)$(MANDIR)/man1/dwl.1 \
 		$(DESTDIR)$(DATADIR)/wayland-sessions/dwl.desktop
