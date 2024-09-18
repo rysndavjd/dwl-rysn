@@ -10,6 +10,8 @@
         "dwl/window#title"
     ],
     "modules-right": [
+        "battery",
+        "pulseaudio",
         "tray",
         "clock"
     ],
@@ -29,6 +31,35 @@
         "max-length": 50,
         "tooltip": false
     }, 
+    "battery": {
+        "tooltip": true,
+        "tooltip-format": "{time} remaining ({capacity}%)",
+        "interval": 60,
+        "states": {
+            "full": 100,
+            "3/4": 75,
+            "half": 50,
+            "quarter": 25,
+            "10": 10,
+            "dead": 2
+        },
+        "format": "{icon}",
+        "format-icons": ["󱃍", "󰁻", "󰁼", "󰁾", "󰂁", "󰁹"]
+    },
+    "pulseaudio": {
+        "states": {
+            "max": 100,
+            "half": 50,
+            "0": 0
+        },
+        "tooltip-format": "{volume}% ({desc})",
+        "format": "{icon}{volume}",
+        "format-icons": ["", "", ""],
+        "format-bluetooth": "󰦢{volume}",
+        "format-muted": "󰓄",
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
     "tray": {
         "icon-size": 35,
         "spacing": 10

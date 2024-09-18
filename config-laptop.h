@@ -25,6 +25,7 @@ static const char *const autostart[] = {
         //"wbg", "/path/to/your/image", NULL,
 		"waybar", NULL,
 		"blueman-applet", NULL,
+		"nm-applet", NULL,
         NULL /* terminate */
 };
 

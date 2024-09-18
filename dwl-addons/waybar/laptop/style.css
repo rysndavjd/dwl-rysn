@@ -24,6 +24,14 @@ window#waybar {
     background: #ff0000;
 }
 
+#pulseaudio {
+    font-size: 25px;
+}
+
+#battery {
+    font-size: 25px;
+}
+
 #clock {
     color: #bbbbbb;
     background-color: #222222;
