@@ -1,4 +1,5 @@
 VERSION = 0.1
+CONFIG=laptop
 
 PKG_CONFIG = pkg-config
 
