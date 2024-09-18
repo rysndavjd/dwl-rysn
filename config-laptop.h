@@ -24,6 +24,7 @@ static int log_level = WLR_ERROR;
 static const char *const autostart[] = {
         //"wbg", "/path/to/your/image", NULL,
 		"waybar", NULL,
+		"blueman-applet", NULL,
         NULL /* terminate */
 };
 
