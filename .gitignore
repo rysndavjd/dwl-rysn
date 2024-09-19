@@ -5,6 +5,7 @@ pointer-constraints-unstable-v1-protocol.h
 wlr-layer-shell-unstable-v1-protocol.h
 wlr-output-power-management-unstable-v1-protocol.h
 dwl-ipc-unstable-v2-protocol.h
+dwl-ipc-unstable-v2-protocol.c
 xdg-shell-protocol.h
 .vscode
 dwl
