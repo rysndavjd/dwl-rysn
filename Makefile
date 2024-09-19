@@ -61,13 +61,13 @@ clean:
 	rm -f dwl *.o *-protocol.h
 
 dist: clean
-	mkdir -p dwl-$(VERSION)
+	mkdir -p dwl-rysn-$(VERSION)
 	cp -R LICENSE* Makefile CHANGELOG.md README.md client.h config.def.h \
 		config.mk protocols dwl.1 dwl.c util.c util.h dwl.desktop \
 		patchs dwl-addons config-laptop.h config-desktop.h \
-		dwl-$(VERSION)
-	tar -caf dwl-$(VERSION).tar.gz dwl-$(VERSION)
-	rm -rf dwl-$(VERSION)
+		dwl-rysn-$(VERSION)
+	tar -caf dwl-rysn-$(VERSION).tar.gz dwl-rysn-$(VERSION)
+	rm -rf dwl-rysn-$(VERSION)
 
 install: dwl
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
