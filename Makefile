@@ -54,8 +54,8 @@ dwl-ipc-unstable-v2-protocol.c:
 	$(WAYLAND_SCANNER) private-code \
 		protocols/dwl-ipc-unstable-v2.xml $@
 
-config.h:
-	ln -sr config-$(CONFIG).h config.h
+config.h: clean
+	ln -srf config-$(CONFIG).h config.h
 
 clean:
 	rm -f dwl *.o *-protocol.h
@@ -64,6 +64,7 @@ dist: clean
 	mkdir -p dwl-$(VERSION)
 	cp -R LICENSE* Makefile CHANGELOG.md README.md client.h config.def.h \
 		config.mk protocols dwl.1 dwl.c util.c util.h dwl.desktop \
+		patchs dwl-addons config-laptop.h config-desktop.h \
 		dwl-$(VERSION)
 	tar -caf dwl-$(VERSION).tar.gz dwl-$(VERSION)
 	rm -rf dwl-$(VERSION)
@@ -78,7 +79,11 @@ install: dwl
 	mkdir -p $(DESTDIR)$(DATADIR)/wayland-sessions
 	cp -f dwl.desktop $(DESTDIR)$(DATADIR)/wayland-sessions/dwl.desktop
 	chmod 644 $(DESTDIR)$(DATADIR)/wayland-sessions/dwl.desktop
-	mkdir -p $(DESTDIR)$(PREFIX)/share/dwl
+	mkdir -p $(DESTDIR)$(PREFIX)/share/dwl-rysn
+	cp dwl-addons/scripts/* $(DESTDIR)$(PREFIX)/share/dwl-rysn/
+	chmod 755 $(DESTDIR)$(PREFIX)/share/dwl-rysn/*
+	cp dwl-addons/profile/$(CONFIG)/.bash_profile $(DESTDIR)$(PREFIX)/share/dwl-rysn/
+	chmod 755 $(DESTDIR)$(PREFIX)/share/dwl-rysn/*
 	cp -f dwl-addons/rofi/rofi.rasi $(DESTDIR)/etc/xdg/rofi.rasi
 	chmod 644 $(DESTDIR)/etc/xdg/rofi.rasi
 	mkdir -p $(DESTDIR)/etc/xdg/waybar

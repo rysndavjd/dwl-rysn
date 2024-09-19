@@ -77,7 +77,7 @@ static const int tap_to_click = 1;
 static const int tap_and_drag = 1;
 static const int drag_lock = 1;
 static const int natural_scrolling = 0;
-static const int disable_while_typing = 1;
+static const int disable_while_typing = 0;
 static const int left_handed = 0;
 static const int middle_button_emulation = 0;
 /* You can choose between:
@@ -130,11 +130,11 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 /* commands */
 static const char *termcmd[] = { "kitty", NULL };
 static const char *menucmd[] = { "rofi", "-show", "drun", NULL };
-static const char *flameshot[] = { "/bin/sh", "/usr/share/dwm/flameshot.sh", NULL };
-//static const char *lock[] = { "/bin/sh", "/usr/share/dwm/slock.sh", NULL };
-static const char *volumeinc[]  = { "/bin/sh", "/usr/share/dwm/pactl.sh", "inc", NULL };
-static const char *volumedec[] = { "/bin/sh", "/usr/share/dwm/pactl.sh", "dec", NULL };
-static const char *volumemute[] = { "/bin/sh", "/usr/share/dwm/pactl.sh", "mute", NULL };
+static const char *backlightinc[]  = { "/bin/sh", "/usr/share/dwl-rysn/xbacklight.sh", "inc", NULL };
+static const char *backlightdec[]  = { "/bin/sh", "/usr/share/dwl-rysn/xbacklight.sh", "dec", NULL };
+static const char *volumeinc[]  = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "inc", NULL };
+static const char *volumedec[] = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "dec", NULL };
+static const char *volumemute[] = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "mute", NULL };
 
 #define ADDPASSRULE(S, M, K) {.appid = S, .len = LENGTH(S), .key = K}
 static const PassKeypressRule pass_rules[] = {
@@ -150,7 +150,8 @@ static const Key keys[] = {
 	//Spawning apps
 	{ MODKEY,                    XKB_KEY_r,          spawn,          {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
-	{ MODKEY,                    XKB_KEY_Print,     spawn,          {.v = flameshot} },
+	{ MODKEY,                    XKB_KEY_F6,     spawn,          {.v = backlightinc} },
+	{ MODKEY,                    XKB_KEY_F5,     spawn,          {.v = backlightdec} },
 	{ MODKEY,                    XKB_KEY_F3,     spawn,          {.v = volumeinc} },
 	{ MODKEY,                    XKB_KEY_F2,     spawn,          {.v = volumedec} },
 	{ MODKEY,                    XKB_KEY_F1,     spawn,          {.v = volumemute} },
