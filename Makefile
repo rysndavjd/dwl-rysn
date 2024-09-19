@@ -17,9 +17,9 @@ DWLCFLAGS = `$(PKG_CONFIG) --cflags $(PKGS)` $(DWLCPPFLAGS) $(DWLDEVCFLAGS) $(CF
 LDLIBS    = `$(PKG_CONFIG) --libs $(PKGS)` -lm $(LIBS)
 
 all: dwl
-dwl: dwl.o util.o dwl-ipc-unstable-v2-protocol.o
+dwl: config.h dwl.o util.o dwl-ipc-unstable-v2-protocol.o
 	$(CC) dwl.o util.o dwl-ipc-unstable-v2-protocol.o $(DWLCFLAGS) $(LDFLAGS) $(LDLIBS) -o $@
-dwl.o: dwl.c client.h config.h config.mk cursor-shape-v1-protocol.h \
+dwl.o: dwl.c client.h config.mk cursor-shape-v1-protocol.h \
 	pointer-constraints-unstable-v1-protocol.h wlr-layer-shell-unstable-v1-protocol.h \
 	wlr-output-power-management-unstable-v1-protocol.h xdg-shell-protocol.h \
 	dwl-ipc-unstable-v2-protocol.h
@@ -54,7 +54,7 @@ dwl-ipc-unstable-v2-protocol.c:
 	$(WAYLAND_SCANNER) private-code \
 		protocols/dwl-ipc-unstable-v2.xml $@
 
-config.h: clean
+config.h:
 	ln -srf config-$(CONFIG).h config.h
 
 clean:
@@ -84,6 +84,7 @@ install: dwl
 	chmod 755 $(DESTDIR)$(PREFIX)/share/dwl-rysn/*
 	cp dwl-addons/profile/$(CONFIG)/.bash_profile $(DESTDIR)$(PREFIX)/share/dwl-rysn/
 	chmod 755 $(DESTDIR)$(PREFIX)/share/dwl-rysn/*
+	mkdir -p $(DESTDIR)/etc/xdg
 	cp -f dwl-addons/rofi/rofi.rasi $(DESTDIR)/etc/xdg/rofi.rasi
 	chmod 644 $(DESTDIR)/etc/xdg/rofi.rasi
 	mkdir -p $(DESTDIR)/etc/xdg/waybar
