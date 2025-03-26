@@ -68,6 +68,7 @@
 #endif
 
 #include "util.h"
+#include <spawn.h>
 
 /* macros */
 #define MAX(A, B)               ((A) > (B) ? (A) : (B))
@@ -2823,15 +2824,12 @@ setup(void)
 #endif
 }
 
+extern char **environ;
+
 void
 spawn(const Arg *arg)
 {
-	if (fork() == 0) {
-		dup2(STDERR_FILENO, STDOUT_FILENO);
-		setsid();
-		execvp(((char **)arg->v)[0], (char **)arg->v);
-		die("dwl: execvp %s failed:", ((char **)arg->v)[0]);
-	}
+	posix_spawnp(NULL, ((char **)arg->v)[0], NULL, NULL, (char **)arg->v, environ);
 }
 
 void
