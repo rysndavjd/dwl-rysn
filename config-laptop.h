@@ -130,11 +130,14 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 /* commands */
 static const char *termcmd[] = { "kitty", NULL };
 static const char *menucmd[] = { "rofi", "-show", "drun", NULL };
-static const char *backlightinc[]  = { "/bin/sh", "/usr/share/dwl-rysn/xbacklight.sh", "inc", NULL };
-static const char *backlightdec[]  = { "/bin/sh", "/usr/share/dwl-rysn/xbacklight.sh", "dec", NULL };
-static const char *volumeinc[]  = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "inc", NULL };
-static const char *volumedec[] = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "dec", NULL };
-static const char *volumemute[] = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "mute", NULL };
+static const char *backlightinc[]  = { "/usr/bin/xbacklight", "-inc", "5", NULL };
+static const char *backlightdec[]  = { "/usr/bin/xbacklight", "-dec", "5", NULL };
+static const char *volumeinc[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL };
+static const char *volumedec[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL };
+static const char *volumemute[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *lock[] = { "/usr/bin/slock", NULL };
+static const char *flameshot[] = { "/usr/bin/flameshot", "gui", NULL };
+
 
 #define ADDPASSRULE(S, M, K) {.appid = S, .len = LENGTH(S), .key = K}
 static const PassKeypressRule pass_rules[] = {
@@ -158,7 +161,6 @@ static const Key keys[] = {
 	//toggles
 	{ MODKEY,                    XKB_KEY_f,         togglefullscreen, {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
-	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
 	//focusing
