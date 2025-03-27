@@ -1,0 +1,38 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Cantarell", "Symbols Nerd Font Mono";
+    font-size: 35px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #222222;
+}
+
+#tags button {
+    background: #222222;
+    color: #bbbbbb;
+}
+#tags button.occupied {
+    color: #eeeeee;
+}
+#tags button.focused {
+    background: #005577;
+}
+#tags button.urgent{
+    background: #ff0000;
+}
+
+#pulseaudio {
+    font-size: 25px;
+}
+
+#battery {
+    font-size: 25px;
+}
+
+#clock {
+    color: #bbbbbb;
+    background-color: #222222;
+}
