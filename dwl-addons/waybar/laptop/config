@@ -15,8 +15,6 @@
         "tray",
         "clock"
     ],
-    // Modules configuration
-
     "dwl/tags": {
         "num-tags": 6,
         "tag-labels": ["", "󰈹", "", 4, 5, 6]
