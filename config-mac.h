@@ -107,7 +107,7 @@ LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT
 LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE
 */
 static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT;
-static const double accel_speed = 0.0;
+static const double accel_speed = 0.5;
 
 /* You can choose between:
 LIBINPUT_CONFIG_TAP_MAP_LRM -- 1/2/3 finger tap maps to left/right/middle
@@ -130,11 +130,11 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 /* commands */
 static const char *termcmd[] = { "kitty", NULL };
 static const char *menucmd[] = { "rofi", "-show", "drun", NULL };
-static const char *backlightinc[]  = { "/bin/sh", "/usr/share/dwl-rysn/xbacklight.sh", "inc", NULL };
-static const char *backlightdec[]  = { "/bin/sh", "/usr/share/dwl-rysn/xbacklight.sh", "dec", NULL };
-static const char *volumeinc[]  = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "inc", NULL };
-static const char *volumedec[] = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "dec", NULL };
-static const char *volumemute[] = { "/bin/sh", "/usr/share/dwl-rysn/pactl.sh", "mute", NULL };
+//static const char *backlightinc[]  = { "/usr/bin/xbacklight", "-inc", "5", NULL };
+//static const char *backlightdec[]  = { "/usr/bin/xbacklight", "-dec", "5", NULL };
+static const char *volumeinc[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL };
+static const char *volumedec[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL };
+static const char *volumemute[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 
 #define ADDPASSRULE(S, M, K) {.appid = S, .len = LENGTH(S), .key = K}
 static const PassKeypressRule pass_rules[] = {
@@ -150,11 +150,11 @@ static const Key keys[] = {
 	//Spawning apps
 	{ MODKEY,                    XKB_KEY_r,          spawn,          {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
-	{ MODKEY,                    XKB_KEY_F6,     spawn,          {.v = backlightinc} },
-	{ MODKEY,                    XKB_KEY_F5,     spawn,          {.v = backlightdec} },
-	{ MODKEY,                    XKB_KEY_F3,     spawn,          {.v = volumeinc} },
-	{ MODKEY,                    XKB_KEY_F2,     spawn,          {.v = volumedec} },
-	{ MODKEY,                    XKB_KEY_F1,     spawn,          {.v = volumemute} },
+	//{ MODKEY,                    XKB_KEY_F6,     spawn,          {.v = backlightinc} },
+	//{ MODKEY,                    XKB_KEY_F5,     spawn,          {.v = backlightdec} },
+	{ MODKEY,                    XKB_KEY_F12,     spawn,          {.v = volumeinc} },
+	{ MODKEY,                    XKB_KEY_F11,     spawn,          {.v = volumedec} },
+	{ MODKEY,                    XKB_KEY_F10,     spawn,          {.v = volumemute} },
 	//toggles
 	{ MODKEY,                    XKB_KEY_f,         togglefullscreen, {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
