@@ -22,7 +22,10 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        //"wbg", "/path/to/your/image", NULL,
+		"gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", "\"Adwaita-dark\"", NULL,
+    	"gsettings", "set", "org.gnome.desktop.interface", "icon-theme", "\"Papirus-Dark\"", NULL,
+		"gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", "\"Adwaita\"", NULL,
+		"gsettings", "set", "org.gnome.desktop.interface", "font-name", "\"cantarell\"", NULL,
 		"waybar", NULL,
 		"blueman-applet", NULL,
 		"nm-applet", NULL,
@@ -57,6 +60,7 @@ static const MonitorRule monrules[] = {
 	{ "eDP-1",    0.5f,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	*/
 	/* defaults */
+	{ "HDMI-A-1",       0.55f, 1,      1.3,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 };
 
