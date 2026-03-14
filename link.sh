@@ -1,12 +1,12 @@
 #!/bin/bash
 
-config="desktop laptop"
+config="desktop"
 
 echo "Enter config to link to ($config)"
-read chose
+read -r chose
 
 for num in $config ; do 
     if [ "$num" = "$chose" ] ; then
-        ln -sr config-$chose.h config.h
+        ln -sr "config-$chose.h" config.h
     fi
 done

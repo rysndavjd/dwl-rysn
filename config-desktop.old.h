@@ -22,7 +22,10 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        //"wbg", "/path/to/your/image", NULL,
+		"gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", "\"Adwaita-dark\"", NULL,
+    	"gsettings", "set", "org.gnome.desktop.interface", "icon-theme", "\"Papirus-Dark\"", NULL,
+		"gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", "\"Adwaita\"", NULL,
+		"gsettings", "set", "org.gnome.desktop.interface", "font-name", "\"cantarell\"", NULL,
 		"waybar", NULL,
 		"blueman-applet", NULL,
 		"nm-applet", NULL,
@@ -57,6 +60,7 @@ static const MonitorRule monrules[] = {
 	{ "eDP-1",    0.5f,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	*/
 	/* defaults */
+	{ "HDMI-A-1",       0.55f, 1,      1.3,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 };
 
@@ -152,9 +156,9 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	//{ MODKEY,                    XKB_KEY_F6,     spawn,          {.v = backlightinc} },
 	//{ MODKEY,                    XKB_KEY_F5,     spawn,          {.v = backlightdec} },
-	{ MODKEY,                    XKB_KEY_F12,     spawn,          {.v = volumeinc} },
-	{ MODKEY,                    XKB_KEY_F11,     spawn,          {.v = volumedec} },
-	{ MODKEY,                    XKB_KEY_F10,     spawn,          {.v = volumemute} },
+	{ MODKEY,                    XKB_KEY_F3,     spawn,          {.v = volumeinc} },
+	{ MODKEY,                    XKB_KEY_F2,     spawn,          {.v = volumedec} },
+	{ MODKEY,                    XKB_KEY_F1,     spawn,          {.v = volumemute} },
 	//toggles
 	{ MODKEY,                    XKB_KEY_f,         togglefullscreen, {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
