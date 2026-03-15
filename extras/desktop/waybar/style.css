@@ -1,0 +1,64 @@
+* {
+    font-family: "Cantarell";
+    font-size: 40px;
+	border: none;
+    border-radius: 0;
+	padding: 0;
+	margin: 0;
+}
+
+window#waybar { 
+    background-color: #005577; 
+    color: #ffffff;    
+}
+
+.modules-left {
+	background-color: #323232;
+	padding: 0px 0px 0px 0px;
+
+}
+
+.modules-center {
+	padding: 0px 0px 0px 0px;
+}
+
+.modules-right {
+	background-color: #323232;
+	padding: 0px 0px 0px 0px;
+}
+
+#tags {
+	padding: 0px 0px 0px 0px;
+}
+
+#tags button {
+	padding: 0px 25px 0px 25px; 
+	color: #bbbbbb;
+}
+
+#tags button:hover {
+	background: none;
+	color: #bbbbbb;
+	border-color: transparent;
+}
+
+#tags button.focused { 
+	padding: 0px 25px 0px 25px; 
+	background-color: #005577;
+	color: #ffffff;
+}
+
+#window {
+	padding: 0px 0px 0px 0px;
+}
+
+#clock {
+	margin: 0px 15px 0px 15px;
+}
+
+#tray{
+    padding: 0px 8px 0px 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+
