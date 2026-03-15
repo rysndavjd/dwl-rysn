@@ -128,6 +128,7 @@ static const Key keys[] = {
 	// Toggles
 	{ MODKEY,                    XKB_KEY_f,           togglefullscreen, {0} },
 	{ MODKEY, 					 XKB_KEY_space,       togglefloating,   {0} },
+	{ MODKEY,                    XKB_KEY_b,           togglebar,        {0} },
 
 	// Modify Tiling layout 
 	{ MODKEY,                    XKB_KEY_a,           focusstack,       {.i = +1} },
